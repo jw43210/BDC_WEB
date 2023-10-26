@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="kor"> 
-<head>
+<head> 
 <meta charset="UTF-8">
 <title>Login</title>
 <link rel="stylesheet" href="../../../resources/member/css/login.css?after">
