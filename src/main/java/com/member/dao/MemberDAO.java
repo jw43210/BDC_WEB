@@ -20,7 +20,7 @@ public class MemberDAO {
 	@Autowired
 	public MemberDAO(DataSource dataSource) {
 		this.jdbcTemplate = new JdbcTemplate(dataSource);
-	}
+	} 
 	
 	// ID 중복체크
 	public boolean loginCheck(String id, String pw) {

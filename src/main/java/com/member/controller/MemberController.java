@@ -29,7 +29,7 @@ public class MemberController {
 	}
     
     // 페이지 이동 관련 Method : com.member.config.MvcConfig 참고
-    
+     
     // 아이디 중복 체크
     @PostMapping("/checkDuplicateId")
     @ResponseBody
