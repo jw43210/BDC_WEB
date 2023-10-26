@@ -12,15 +12,15 @@
 		var id = $("#id").val();
 		var codeValue = $("#codeValue").val();
 		
-		if (codeValue == "INTERNAL") {
+		if (codeValue == "EGENCY") {
 			$("#inCode").prop("checked", true);
 			$("#exCode").prop("checked", false);
-		} else if(codeValue == "EXTERNAL") {
+		} else if(codeValue == "SELLER") {
 			$("#inCode").prop("checked", false);
 			$("#exCode").prop("checked", true);
 		}
 		
-		// 로그인하지 않은 상태일 경우ㅠㅡㅇ
+		// 로그인하지 않은 상태일 경우
 		if (id == null || id == "") {
 			location.href="/main";
 		}
@@ -49,11 +49,11 @@
 		
 		// 회원 코드 radio 체크시
 		$(".codeBtn").change(function(){
-			if($(".codeBtn").val() == 'INTERNAL') {
-				$('#department').attr("placeholder", "부서명");
+			if($(".codeBtn").val() == 'EGENCY') {
+				$('#egency').attr("placeholder", "대리점명");
 			}
-			if($(".codeBtn").val() == 'EXTERNAL') {
-				$('#department').attr("placeholder", "거래처명");
+			if($(".codeBtn").val() == 'SELLER') {
+				$('#egency').attr("placeholder", "판매자명");
 			}
 		});
 		
@@ -72,7 +72,7 @@
 		// 회원 정보 수정
 		function update() {
 			var code = $(":input:radio[name=code]:checked").val();
-			var department = $("#department").val();
+			var egency = $("#egency").val();
 			var idDupChk = $("#idDupChk").val();
 			var name = $("#name").val();
 			var phone = $("#phone").val();
@@ -84,13 +84,13 @@
 			
 			$('input:radio[name=code]:input[value=' + code + ']').attr("checked", true);
 			
-			if (department == '' || department == null) {
-				if(code == 'INTERNAL') {
-					alert( '부서명을 입력해 주세요.' );
-				} else if(code == 'EXTERNAL') {
-					alert( '거래처명을 입력해 주세요.' );
+			if (egency == '' || egency == null) {
+				if(code == 'EGENCY') {
+					alert( '대리점명을 입력해 주세요.' );
+				} else if(code == 'SELLER') {
+					alert( '판매자명을 입력해 주세요.' );
 				}
-			    $("#department").focus();
+			    $("#egency").focus();
 			    return false;
 			}
 			
@@ -160,18 +160,18 @@
 		<div class="signin">
 			<div class="signup">
 				<div class="logo"></div>
-				<div class="internal-form">
+				<div class="EGENCY-form">
 				<input type="hidden" id="codeValue" name="codeValue" value="${member.code}">
 					<form id="updateForm" name="updateForm" action="/member/updateSubmit" method="post">
-						<label><input type="radio" class="codeBtn" name="code" id="inCode" value="INTERNAL" /> INTERNAL</label>
+						<label><input type="radio" class="codeBtn" name="code" id="inCode" value="EGENCY" /> EGENCY</label>
     					<label><input type="radio" class="codeBtn" name="code" id="exCode" value="EXTERNAL" /> EXTERNAL</label>
 						<div class="input-group" style="padding-top: 30px">
 							UserID
 							<input type="text" id="id" name="id" placeholder="UserID" value="${member.id}" readonly style="border: none; background-color: rgba(180, 196, 255, 0.303);">
 						</div>
 						<div class="input-group">
-							부서명 / 거래처명
-							<input type="text" id="department" name="department" value="${member.department}">
+							대리점명 / 판매자명
+							<input type="text" id="egency" name="egency" value="${member.egency}">
 						</div>
 						<div class="input-group">
 							Name

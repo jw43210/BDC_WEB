@@ -77,7 +77,7 @@
     <div class="main">
         <section class="cover cover_fullpage">
             <div class="cover-background">
-                <img src="/resources/img/main1.png">
+                <img src="/resources/img/logo.png">
             </div>
             <div class="cover-inside">
                 <div class="l_wrapper">
@@ -89,7 +89,7 @@
                                     <img class="front-box-cover" src="http://wizcore.co.kr/wp-content/themes/wizcore/statics/home/images/front-icon-03.png">
                                         <h2>Innovative</h2>
                                         <hr>
-                                        <p>데이터 기반의 혁신적인 경험을 바탕으로 비즈니스 성장을 견인합니다.</p>
+                                        <p></p>
                                     </div>
                                 </div>
                                 <div class="front-slide-item">
@@ -97,7 +97,7 @@
                                         <img class="front-box-cover" src="http://wizcore.co.kr/wp-content/themes/wizcore/statics/home/images/front-icon-02.png">
                                         <h2>Intelligent</h2>
                                         <hr>
-                                        <p>스마트한 데이터 분석으로 예측 가능한 결과를 제공합니다.</p>
+                                        <p></p>
                                     </div>
                                 </div>
                                 <div class="front-slide-item">
@@ -105,7 +105,7 @@
                                         <img class="front-box-cover" src="http://wizcore.co.kr/wp-content/themes/wizcore/statics/home/images/front-icon-01.png">
                                         <h2>Insightful</h2>
                                         <hr>
-                                        <p>데이터로부터 얻은 의미있는 통찰력을 차별화 된 가치로 전환합니다.</p>
+                                        <p></p>
                                     </div>
                                 </div>
                             </div>

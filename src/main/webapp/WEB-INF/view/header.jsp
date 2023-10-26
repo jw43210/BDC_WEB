@@ -87,7 +87,7 @@
                         location.href = "/main";
                     }
                 } else if (id !== null && id !== "" && code === 'EXTERNAL') {
-                    alert("외부인 회원은 해당 페이지에 접근할 수 없습니다.");
+                    alert("판매자회원은 해당 페이지에 접근할 수 없습니다.");
                     return;
                 } else if (id !== null && id !== "" && (code === 'INTERNAL' || code === 'ADMIN')) {
                     location.href = url;
@@ -108,9 +108,11 @@
 	</script>
 </head>
 <body>
+<!-- 로딩
 <div class= "load" id="load">
 	<img src="/resources/img/Ripple-1s-200px (1).gif" alt="loading">
-</div>
+</div>-->
+
 <!-- 헤더 -->
 <div class="header">
     <table class="current-time">
@@ -148,11 +150,33 @@
 <div id="sidebarMenu">
     <div class="logo">
         <a href="/main"><img src="/resources/img/logo2.jpeg"></a>
-        <h2><a id="main" style="text-decoration-line: none; color: black; text-align:center;" href="/main">Easy Factory</a></h2>
+        <h2><a id="main" style="text-decoration-line: none; color: black; text-align:center;" href="/main">BDC_</a></h2>
     </div>
 	<input type="hidden" id="id" value="${member.id}">
 	<input type="hidden" id="code" value="${member.code}">
     <ul class="sidebarMenuInner">
+    
+        <li>
+        <a href="#" class="ha">Agency<span></span></a>
+        <ul class="submenu">
+            <li><a id="EnergySimulation">Agency<br></a></li>
+            <li><a id="EnergySimulation">Seller<br></a></li>
+        </ul>
+ 
+        <li>
+        <a href="#" class="ha">Sellers<span></span></a>
+        <ul class="submenu">
+            <li><a id="EnergySimulation">Settlement management<br></a></li>
+        </ul>
+              
+        <li>
+        <a href="#" class="ha">Admin Only<span></span></a>
+        <ul class="submenu">
+            <li><a id="EnergySimulation">Agency Total<br></a></li>
+            <li><a id="EnergySimulation">Seller Total<br></a></li>
+        </ul>
+               
+    <!-- 
         <li>
             <a href="#" class="ha">process<span>dashboard</span></a>
             <ul class="submenu">
@@ -188,6 +212,7 @@
             <a id="guideLines" class="ha">guide<span>line</span></a>
         </li>
     </ul>
+     -->
 </div>
 </body>
 </html>
