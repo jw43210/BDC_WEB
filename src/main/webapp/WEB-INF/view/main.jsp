@@ -77,8 +77,7 @@
     <div class="main">
         <section class="cover cover_fullpage">
             <div class="cover-background">
-                <video class="cover-background-video" playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop" src="http://wizcore.co.kr/wp-content/uploads/sites/4/2020/10/video.mp4">
-                </video>
+                <img src="/resources/img/main1.png">
             </div>
             <div class="cover-inside">
                 <div class="l_wrapper">
