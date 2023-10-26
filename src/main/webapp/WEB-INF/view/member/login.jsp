@@ -18,7 +18,7 @@
 		});
 		
 		// 회원가입 페이지
-		$("#signupBtn").on('click', function() {
+		$("#signupBtn").on('click', function() { 
 			location.href="/member/signup";
 		});
 		
