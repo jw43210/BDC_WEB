@@ -4,7 +4,7 @@
 <%@ include file="header.jsp" %>
 <!DOCTYPE html>
 <html lang="kor">
-<head>
+<head> 
     <meta charset="UTF-8">
     <title>MainPage</title>
     <link rel="stylesheet" href="../../resources/main/css/main.css?after">

@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="kor">
-<head>
+<head> 
 <meta charset="UTF-8">
 <title>SignUp</title>
 <link rel="stylesheet" href="../../../resources/member/css/signup.css">
