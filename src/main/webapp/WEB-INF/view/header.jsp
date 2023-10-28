@@ -5,7 +5,7 @@
 <html lang="ko">  
 <head> 
     <meta charset="UTF-8">
-    <title>EASY FACTORY</title>
+    <title>DBC</title>
     <link href="../../../resources/main/css/header.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
@@ -23,45 +23,25 @@
             });
             
             // 클릭 이벤트 바인딩
-            $("a[id^='feb']").on('click', function() {
-                var id = $("#id").val();
-                var code = $("#code").val();
-                var num = $(this).attr('id').replace('feb', '');
-                var url = "/feb/feb" + num;
-                checkAccess(id, code, url);
-            });
-
-            $("#guideLines").on('click', function() {
-                var id = $("#id").val();
-                var code = $("#code").val();
-                checkAccess(id, code, "/feb/guideLines");
-            });
-
-            $("#energy").on('click', function() {
-                var id = $("#id").val();
-                var code = $("#code").val();
-                checkAccess(id, code, "/energy/energyDashboard");
-            });
-
-            $("#stock").on('click', function() {
-                var id = $("#id").val();
-                var code = $("#code").val();
-                checkAccess(id, code, "/stock/stockDashboard");
-            });
-            
-            $("#EnergySimulation").on('click', function() {
+            $("#agency").on('click', function() {
                 var id = $("#id").val();
                 var code = $("#code").val();
                 checkAccess(id, code, "/analysis/energySimulation");
             });
             
-            $("#tat").on('click', function() {
+            $("#seller").on('click', function() {
+                var id = $("#id").val();
+                var code = $("#code").val();
+                checkAccess(id, code, "/analysis/energySimulation");
+            });
+            
+            $("#settlementManagement").on('click', function() {
                 var id = $("#id").val();
                 var code = $("#code").val();
                 checkAccess(id, code, "/tat/tat");
             });
 
-            $("#issueList").on('click', function() {
+            $("#agencyTotal").on('click', function() {
                 var id = $("#id").val();
                 if (id == null || id === "") {
                     var result = confirm("로그인 하세요.");
@@ -74,6 +54,20 @@
                 } else {
                     location.href = "/issue/list";
                 }
+                
+           $("#sellerTotal").on('click', function() {
+               var id = $("#id").val();
+               if (id == null || id === "") {
+                   var result = confirm("로그인 하세요.");
+                   if (result) {
+                       location.href = "/member/login";
+                   } else {
+                       alert("취소하였습니다.");
+                       location.href = "/main";
+                   }
+               } else {
+                   location.href = "/issue/list";
+               }    
             });
 
          // 공통 함수: 로그인 여부 및 접근 권한 체크
@@ -86,10 +80,10 @@
                         alert("취소하였습니다.");
                         location.href = "/main";
                     }
-                } else if (id !== null && id !== "" && code === 'EXTERNAL') {
+                } else if (id !== null && id !== "" && code === 'SELLER') {
                     alert("판매자회원은 해당 페이지에 접근할 수 없습니다.");
                     return;
-                } else if (id !== null && id !== "" && (code === 'INTERNAL' || code === 'ADMIN')) {
+                } else if (id !== null && id !== "" && (code === 'EGENCY' || code === 'ADMIN')) {
                     location.href = url;
                 }
             }
@@ -100,11 +94,13 @@
         });
     </script>
     <script type="text/javascript">
-	$(document).ready(function() {
+    
+/* 	$(document).ready(function() {
 		setTimeout(function (){
 			$('#load').hide();
 		}, 1500)
-	});
+	}); */
+	
 	</script>
 </head>
 <body>
@@ -159,21 +155,21 @@
         <li>
         <a href="#" class="ha">Agency<span></span></a>
         <ul class="submenu">
-            <li><a id="EnergySimulation">Agency<br></a></li>
-            <li><a id="EnergySimulation">Seller<br></a></li>
+            <li><a id="agency">Agency<br></a></li>
+            <li><a id="seller">Seller<br></a></li>
         </ul>
  
         <li>
         <a href="#" class="ha">Sellers<span></span></a>
         <ul class="submenu">
-            <li><a id="EnergySimulation">Settlement management<br></a></li>
+            <li><a id="settlementManagement">Settlement management<br></a></li>
         </ul>
               
         <li>
         <a href="#" class="ha">Admin Only<span></span></a>
         <ul class="submenu">
-            <li><a id="EnergySimulation">Agency Total<br></a></li>
-            <li><a id="EnergySimulation">Seller Total<br></a></li>
+            <li><a id="agencyTotal">Agency Total<br></a></li>
+            <li><a id="sellerTotal">Seller Total<br></a></li>
         </ul>
                
     <!-- 

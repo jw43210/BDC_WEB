@@ -50,10 +50,10 @@
 		// 회원 코드 radio 체크시
 		$(".codeBtn").change(function(){
 			if($(".codeBtn").val() == 'EGENCY') {
-				$('#egency').attr("placeholder", "대리점명");
+				$('#department').attr("placeholder", "대리점명");
 			}
 			if($(".codeBtn").val() == 'SELLER') {
-				$('#egency').attr("placeholder", "판매자명");
+				$('#department').attr("placeholder", "판매자명");
 			}
 		});
 		
@@ -72,7 +72,7 @@
 		// 회원 정보 수정
 		function update() {
 			var code = $(":input:radio[name=code]:checked").val();
-			var egency = $("#egency").val();
+			var department = $("#department").val();
 			var idDupChk = $("#idDupChk").val();
 			var name = $("#name").val();
 			var phone = $("#phone").val();
@@ -164,14 +164,14 @@
 				<input type="hidden" id="codeValue" name="codeValue" value="${member.code}">
 					<form id="updateForm" name="updateForm" action="/member/updateSubmit" method="post">
 						<label><input type="radio" class="codeBtn" name="code" id="inCode" value="EGENCY" /> EGENCY</label>
-    					<label><input type="radio" class="codeBtn" name="code" id="exCode" value="EXTERNAL" /> EXTERNAL</label>
+    					<label><input type="radio" class="codeBtn" name="code" id="exCode" value="SELLER" /> SELLER</label>
 						<div class="input-group" style="padding-top: 30px">
 							UserID
 							<input type="text" id="id" name="id" placeholder="UserID" value="${member.id}" readonly style="border: none; background-color: rgba(180, 196, 255, 0.303);">
 						</div>
 						<div class="input-group">
 							대리점명 / 판매자명
-							<input type="text" id="egency" name="egency" value="${member.egency}">
+							<input type="text" id="department" name="department" value="${member.egency}">
 						</div>
 						<div class="input-group">
 							Name

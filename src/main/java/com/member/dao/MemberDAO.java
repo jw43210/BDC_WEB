@@ -20,7 +20,7 @@ public class MemberDAO {
 	@Autowired
 	public MemberDAO(DataSource dataSource) {
 		this.jdbcTemplate = new JdbcTemplate(dataSource);
-	} 
+	}
 	
 	// ID 중복체크
 	public boolean loginCheck(String id, String pw) {
@@ -35,7 +35,7 @@ public class MemberDAO {
 	public void signUp(MemberVO memberVO) {
 		String SQL = "INSERT INTO MEMBER ("
 				+ "			code"
-				+ "			, egency"
+				+ "			, department"
 				+ "			, id"
 				+ "			, name"
 				+ "			, phone"
@@ -46,7 +46,7 @@ public class MemberDAO {
 		jdbcTemplate.update (
 				SQL
 				, memberVO.getCode()
-				, memberVO.getEgency()
+				, memberVO.getDepartment()
 				, memberVO.getId()
 				, memberVO.getName()
 				, memberVO.getPhone()
@@ -71,7 +71,7 @@ public class MemberDAO {
         public MemberVO mapRow(ResultSet rs, int rowNum) throws SQLException {
         	MemberVO memberVO = new MemberVO();
         	memberVO.setCode(rs.getString("code"));
-        	memberVO.setEgency(rs.getString("Egency"));
+        	memberVO.setDepartment(rs.getString("department"));
         	memberVO.setId(rs.getString("id"));
         	memberVO.setName(rs.getString("name"));
         	memberVO.setPhone(rs.getString("phone"));
@@ -83,7 +83,7 @@ public class MemberDAO {
 	
 	// 로그인
 	public MemberVO login(String id, String pw) {
-		String SQL = "SELECT CODE, Egency, ID, NAME, PHONE, EMAIL, PW, REPW FROM MEMBER WHERE UPPER(ID) = UPPER(?) AND PW = ?";
+		String SQL = "SELECT CODE, DEPARTMENT, ID, NAME, PHONE, EMAIL, PW, REPW FROM MEMBER WHERE UPPER(ID) = UPPER(?) AND PW = ?";
 		MemberVO memberVO = jdbcTemplate.queryForObject(SQL, new Object[]{id, pw}, new signinMapper());
 		return memberVO;
 	}
@@ -93,7 +93,7 @@ public class MemberDAO {
 		String SQL = "UPDATE MEMBER"
 				+ "		SET"
 				+ "			CODE = ?"
-				+ ", 		Egency = ?"
+				+ ", 		DEPARTMENT = ?"
 				+ ", 		NAME = ?"
 				+ ", 		PHONE = ?"
 				+ ", 		EMAIL = ?"
@@ -104,7 +104,7 @@ public class MemberDAO {
 		jdbcTemplate.update (
 				SQL
 				, memberVO.getCode()
-				, memberVO.getEgency()
+				, memberVO.getDepartment()
 				, memberVO.getName()
 				, memberVO.getPhone()
 				, memberVO.getEmail()

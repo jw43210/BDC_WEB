@@ -2,7 +2,7 @@ package com.member.vo;
 
 public class MemberVO {
 	private String code;
-	private String egency;
+	private String department;
 	private String id;
 	private String name;
 	private String phone;
@@ -12,9 +12,9 @@ public class MemberVO {
 	
 	public MemberVO() {}
 
-	public MemberVO(String code, String egency, String id, String name, String phone, String email, String pw, String repw) {
+	public MemberVO(String code, String department, String id, String name, String phone, String email, String pw, String repw) {
 		this.code = code;
-		this.egency = egency;
+		this.department = department;
 		this.id = id;
 		this.name = name;
 		this.phone = phone;
@@ -23,9 +23,9 @@ public class MemberVO {
 		this.repw = pw;
 	}
 /*	
-	public MemberVO(String code, String egency, String name, String phone, String email, String pw, String repw) {
+	public MemberVO(String code, String department, String name, String phone, String email, String pw, String repw) {
 		this.code = code;
-		this.egency = egency;
+		this.department = department;
 		this.name = name;
 		this.phone = phone;
 		this.email = email;
@@ -43,11 +43,11 @@ public class MemberVO {
 	public void setCode(String code) {
 		this.code = code;
 	}
-	public String getEgency() {
-		return egency;
+	public String getDepartment() {
+		return department;
 	}
-	public void setEgency(String egency) {
-		this.egency = egency;
+	public void setDepartment(String department) {
+		this.department = department;
 	}
 	public String getId() {
 		return id;
@@ -88,7 +88,7 @@ public class MemberVO {
 	
 	@Override
 	public String toString() {
-		return "MemberVO [code=" + code + ", egency=" + egency + ", id=" + id + ", name=" + name + ", email="
+		return "MemberVO [code=" + code + ", department=" + department + ", id=" + id + ", name=" + name + ", email="
 				+ email + ", pw=" + pw + ", repw=" + repw + "]";
 	}
 }

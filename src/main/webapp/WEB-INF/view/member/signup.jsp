@@ -58,12 +58,12 @@ $(document).ready(function() {
     });
 
     $("input[name='code']").change(function(){
-        $("#egency").val('');
-        if($(this).val() == 'INTERNAL') {
-            $('#egency').attr("placeholder", "대리점명");
+        $("#department").val('');
+        if($(this).val() == 'EGENCY') {
+            $('#department').attr("placeholder", "대리점명");
         }
-        if($(this).val() == 'EXTERNAL') {
-            $('#egency').attr("placeholder", "판매자명");
+        if($(this).val() == 'SELLER') {
+            $('#department').attr("placeholder", "판매자명");
         }
     });
 
@@ -100,7 +100,7 @@ $(document).ready(function() {
     // 회원가입 함수
     function signup() {
         var code = $(":input:radio[name=code]:checked").val();
-        var egency = $("#egency").val();
+        var department = $("#department").val();
         var id = $("#id").val();
         var idDupChk = $("#idDupChk").val();
         var name = $("#name").val();
@@ -113,13 +113,13 @@ $(document).ready(function() {
 
         $('input:radio[name=code]:input[value=' + code + ']').attr("checked", true);
 
-        if( egency == '' || egency == null ){
-            if(code == 'INTERNAL') {
+        if( department == '' || department == null ){
+            if(code == 'EGENCY') {
                 alert( '대리점명을 입력해 주세요.' );
-            } else if(code == 'EXTERNAL') {
+            } else if(code == 'SELLER') {
                 alert( '회원명을 입력해 주세요.' );
             }
-            $("#egency").focus();
+            $("#department").focus();
             return false;
         }
 
@@ -197,10 +197,10 @@ $(document).ready(function() {
 				<div class="logo"></div>
 				<div class="internal-form">
 					<form id="signupForm" name="signupForm" action="/member/signupSubmit" method="post">
-						<label><input type="radio" class="codeBtn" name="code" id="inCode" value="INTERNAL" checked /> Egency</label>
-    					<label><input type="radio" class="codeBtn" name="code" id="exCode" value="EXTERNAL" /> Seller</label>
+						<label><input type="radio" class="codeBtn" name="code" id="inCode" value="EGENCY" checked /> Egency</label>
+    					<label><input type="radio" class="codeBtn" name="code" id="exCode" value="SELLER" /> Seller</label>
 						<div class="input-group">
-							<input type="text" id="egency" name="egency" value="" placeholder="대리점명">
+							<input type="text" id="department" name="department" value="" placeholder="대리점명">
 						</div>
 						<div class="input-group2">
 							<input type="text" id="id" name="id" placeholder="UserID">
