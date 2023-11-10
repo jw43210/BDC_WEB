@@ -8,7 +8,7 @@
 }
 
 body {
-  background-color: #f2f2f2;
+  background-color: #272e38;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -100,19 +100,15 @@ button:hover {
   background-image: url("/resources/img/1.png");      
 }
 .slideshow li:nth-child(1) span { 
-  background-image: url("https://uploads-ssl.webflow.com/5976a3655fcd654cb3d604ca/5bfa14d04ae3429879830ee4_home-hero.jpg");
   animation-delay: 6s; 
 }
 .slideshow li:nth-child(4) span { 
-  background-image: url("/resources/img/1.jpeg");   
   animation-delay: 12s; 
 }
   .slideshow li:nth-child(2) span { 
-  background-image: url("https://uploads-ssl.webflow.com/5976a3655fcd654cb3d604ca/5c00c9ecd82b40364fc97f4b_bridge.jpg");
   animation-delay: 18s; 
 }
 .slideshow li:nth-child(5) span { 
-  background-image: url("/resources/img/2.jpeg");
   animation-delay: 24s; 
 }
 

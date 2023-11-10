@@ -12,7 +12,7 @@
 		var id = $("#id").val();
 		var codeValue = $("#codeValue").val();
 		
-		if (codeValue == "EGENCY") {
+		if (codeValue == "AGENCY") {
 			$("#inCode").prop("checked", true);
 			$("#exCode").prop("checked", false);
 		} else if(codeValue == "SELLER") {
@@ -49,7 +49,7 @@
 		
 		// 회원 코드 radio 체크시
 		$(".codeBtn").change(function(){
-			if($(".codeBtn").val() == 'EGENCY') {
+			if($(".codeBtn").val() == 'AGENCY') {
 				$('#department').attr("placeholder", "대리점명");
 			}
 			if($(".codeBtn").val() == 'SELLER') {
@@ -84,13 +84,13 @@
 			
 			$('input:radio[name=code]:input[value=' + code + ']').attr("checked", true);
 			
-			if (egency == '' || egency == null) {
-				if(code == 'EGENCY') {
+			if (department == '' || department == null) {
+				if(code == 'AGENCY') {
 					alert( '대리점명을 입력해 주세요.' );
 				} else if(code == 'SELLER') {
 					alert( '판매자명을 입력해 주세요.' );
 				}
-			    $("#egency").focus();
+			    $("#department").focus();
 			    return false;
 			}
 			
@@ -160,10 +160,10 @@
 		<div class="signin">
 			<div class="signup">
 				<div class="logo"></div>
-				<div class="EGENCY-form">
+				<div class="AGENCY-form">
 				<input type="hidden" id="codeValue" name="codeValue" value="${member.code}">
 					<form id="updateForm" name="updateForm" action="/member/updateSubmit" method="post">
-						<label><input type="radio" class="codeBtn" name="code" id="inCode" value="EGENCY" /> EGENCY</label>
+						<label><input type="radio" class="codeBtn" name="code" id="inCode" value="AGENCY" /> AGENCY</label>
     					<label><input type="radio" class="codeBtn" name="code" id="exCode" value="SELLER" /> SELLER</label>
 						<div class="input-group" style="padding-top: 30px">
 							UserID
@@ -171,7 +171,7 @@
 						</div>
 						<div class="input-group">
 							대리점명 / 판매자명
-							<input type="text" id="department" name="department" value="${member.egency}">
+							<input type="text" id="department" name="department" value="${member.code}">
 						</div>
 						<div class="input-group">
 							Name

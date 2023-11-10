@@ -5,12 +5,20 @@
 <html lang="ko">  
 <head> 
     <meta charset="UTF-8">
-    <title>DBC</title>
+    <title>BDC_WEB</title>
     <link href="../../../resources/main/css/header.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         $(document).ready(function() {
-            
+        	var code = $("#code").val();
+        	if(code == 'SELLER') {
+        		$('#agencyTab').hide();
+        		$('#adOnlyTab').hide();
+        	} else if(code == 'AGENCY') {
+        		$('#sellerTab').hide();
+        		$('#adOnlyTab').hide();
+        	}
+        	
             // 회원정보 수정
             $("#memUpdateBtn").on('click', function() {
                 location.href="/member/updateCheck";
@@ -26,52 +34,35 @@
             $("#agency").on('click', function() {
                 var id = $("#id").val();
                 var code = $("#code").val();
-                checkAccess(id, code, "/analysis/energySimulation");
+                checkAccessAgency(id, code, "/agency/agency");
             });
-            
+
             $("#seller").on('click', function() {
                 var id = $("#id").val();
                 var code = $("#code").val();
-                checkAccess(id, code, "/analysis/energySimulation");
+                checkAccessAgency(id, code, "/agency/seller");
             });
-            
+
             $("#settlementManagement").on('click', function() {
                 var id = $("#id").val();
                 var code = $("#code").val();
-                checkAccess(id, code, "/tat/tat");
+                checkAccessSeller(id, code, "/sellers/settlementManagement");
             });
-
+            
             $("#agencyTotal").on('click', function() {
                 var id = $("#id").val();
-                if (id == null || id === "") {
-                    var result = confirm("로그인 하세요.");
-                    if (result) {
-                        location.href = "/member/login";
-                    } else {
-                        alert("취소하였습니다.");
-                        location.href = "/main";
-                    }
-                } else {
-                    location.href = "/issue/list";
-                }
-                
-           $("#sellerTotal").on('click', function() {
-               var id = $("#id").val();
-               if (id == null || id === "") {
-                   var result = confirm("로그인 하세요.");
-                   if (result) {
-                       location.href = "/member/login";
-                   } else {
-                       alert("취소하였습니다.");
-                       location.href = "/main";
-                   }
-               } else {
-                   location.href = "/issue/list";
-               }    
+                var code = $("#code").val();
+                checkAccessAdmin(id, code, "/adminOnly/agencyTotal");
+            });
+            
+            $("#sellerTotal").on('click', function() {
+                var id = $("#id").val();
+                var code = $("#code").val();
+                checkAccessAdmin(id, code, "/adminOnly/sellerTotal");
             });
 
          // 공통 함수: 로그인 여부 및 접근 권한 체크
-            function checkAccess(id, code, url) {
+            function checkAccessAgency(id, code, url) {
                 if (id == null || id === "") {
                     var result = confirm("로그인 하세요.");
                     if (result) {
@@ -81,33 +72,53 @@
                         location.href = "/main";
                     }
                 } else if (id !== null && id !== "" && code === 'SELLER') {
-                    alert("판매자회원은 해당 페이지에 접근할 수 없습니다.");
+                    alert("판매자 회원은 해당 페이지에 접근할 수 없습니다.");
                     return;
-                } else if (id !== null && id !== "" && (code === 'EGENCY' || code === 'ADMIN')) {
+                } else if (id !== null && id !== "" && (code === 'AGENCY' || code === 'ADMIN')) {
                     location.href = url;
                 }
             }
             
-            $("#writeBtn").on('click', function() {
-                location.href = "/issue/write";
-            });
+            function checkAccessAdmin(id, code, url) {
+                if (id == null || id === "") {
+                    var result = confirm("로그인 하세요.");
+                    if (result) {
+                        location.href = "/member/login";
+                    } else {
+                        alert("취소하였습니다.");
+                        location.href = "/main";
+                    }
+                } else if (id !== null && id !== "" && (code === 'SELLER' || code === 'AGENCY')) {
+                    alert("관리자 페이지 입니다.");
+                    return;
+                } else if (id !== null && id !== "" && code === 'ADMIN') {
+                    location.href = url;
+                }
+            }
+            
+            function checkAccessSeller(id, code, url) {
+                if (id == null || id === "") {
+                    var result = confirm("로그인 하세요.");
+                    if (result) {
+                        location.href = "/member/login";
+                    } else {
+                        alert("취소하였습니다.");
+                        location.href = "/main";
+                    }
+                } else if (id !== null && id !== "" && code === 'AGENCY') {
+                    alert("대리점 회원은 해당 페이지에 접근할 수 없습니다.");
+                    return;
+                } else if (id !== null && id !== "" && (code === 'SELLER' || code === 'ADMIN')) {
+                    location.href = url;
+                }
+            }
         });
     </script>
     <script type="text/javascript">
-    
-/* 	$(document).ready(function() {
-		setTimeout(function (){
-			$('#load').hide();
-		}, 1500)
-	}); */
 	
 	</script>
 </head>
 <body>
-<!-- 로딩
-<div class= "load" id="load">
-	<img src="/resources/img/Ripple-1s-200px (1).gif" alt="loading">
-</div>-->
 
 <!-- 헤더 -->
 <div class="header">
@@ -152,63 +163,29 @@
 	<input type="hidden" id="code" value="${member.code}">
     <ul class="sidebarMenuInner">
     
-        <li>
-        <a href="#" class="ha">Agency<span></span></a>
-        <ul class="submenu">
-            <li><a id="agency">Agency<br></a></li>
-            <li><a id="seller">Seller<br></a></li>
-        </ul>
+        <li id="agencyTab" >
+	        <a href="#" class="ha">Agency<span></span></a>
+	        <ul class="submenu">
+	            <li><a id="agency">Agency<br></a></li>
+	            <li><a id="seller">Seller<br></a></li>
+	        </ul>
+        </li>
  
-        <li>
-        <a href="#" class="ha">Sellers<span></span></a>
-        <ul class="submenu">
-            <li><a id="settlementManagement">Settlement management<br></a></li>
-        </ul>
+        <li id= "sellerTab">
+	        <a href="#" class="ha">Sellers<span></span></a>
+	        <ul class="submenu">
+	            <li><a id="settlementManagement">Settlement management<br></a></li>
+	        </ul>
+        </li>
               
-        <li>
-        <a href="#" class="ha">Admin Only<span></span></a>
-        <ul class="submenu">
-            <li><a id="agencyTotal">Agency Total<br></a></li>
-            <li><a id="sellerTotal">Seller Total<br></a></li>
-        </ul>
-               
-    <!-- 
-        <li>
-            <a href="#" class="ha">process<span>dashboard</span></a>
-            <ul class="submenu">
-                <li><a id="feb1">Wafer<br>Fabrication</a></li>
-                <li><a id="feb2">Oxidation</a></li>
-                <li><a id="feb3">Photo<br>Lithography</a></li>
-                <li><a id="feb4">Etching</a></li>
-                <li><a id="feb5">Implant</a></li>
-                <li><a id="feb6">Metallization</a></li>
-                <li><a id="feb7">EDS</a></li>
-                <li><a id="feb8">Packaging</a></li>
-            </ul>
-        </li>
-        <li>
-            <a id="energy" class="ha">energy<span>dashboard</span></a>
-        </li>
-        <li>
-            <a id="stock" class="ha">inventory<span>management</span></a>
-        </li>
-        <li>
-            <a href="#" class="ha">smart<span>analysis</span></a>
-            <ul class="submenu">
-                <li><a id="EnergySimulation">Energy<br>Simulation</a></li>
-            </ul>
-        </li>
-         <li>
-            <a id="tat" class="ha">작업관리<span>tat Management</span></a>
-        </li>
-         <li>
-            <a id="issueList" class="ha">issue<span>board</span></a>
-        </li>
-        <li>
-            <a id="guideLines" class="ha">guide<span>line</span></a>
-        </li>
-    </ul>
-     -->
+        <li id="adOnlyTab">
+	        <a href="#" class="ha">Admin Only<span></span></a>
+	        <ul class="submenu">
+	            <li><a id="agencyTotal">Agency Total<br></a></li>
+	            <li><a id="sellerTotal">Seller Total<br></a></li>
+	        </ul>
+		</li>
+	</ul>
 </div>
 </body>
 </html>

@@ -27,9 +27,9 @@ INSERT INTO MEMBER (
     , REPW 
 )
 VALUES (
-    'INTERNAL'
+    'AGENCY'
     ,'이젠아카데미'
-    ,'test'
+    ,'a'
     ,'테스트'
     ,'01051889303'
     ,'test1@naver.com'
@@ -51,9 +51,9 @@ INSERT INTO MEMBER (
     , REPW 
 )
 VALUES (
-    'EXTERNAL'
+    'SELLER'
     ,'외부거래처'
-    ,'EXTERNALTEST'
+    ,'s'
     ,'외부거래처계정'
     ,'01051889303'
     ,'test1@naver.com'
@@ -79,12 +79,12 @@ INSERT INTO MEMBER (
 VALUES (
     'ADMIN'
     ,'관리자'
-    ,'ADMIN'
+    ,'a'
     ,'관리자'
     ,'01012345678'
     ,'9303kj@gmail.com'
-    ,'admin'
-    ,'admin'
+    ,'1234'
+    ,'1234'
 );
 
 

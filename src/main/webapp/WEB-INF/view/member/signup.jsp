@@ -59,7 +59,7 @@ $(document).ready(function() {
 
     $("input[name='code']").change(function(){
         $("#department").val('');
-        if($(this).val() == 'EGENCY') {
+        if($(this).val() == 'AGENCY') {
             $('#department').attr("placeholder", "대리점명");
         }
         if($(this).val() == 'SELLER') {
@@ -114,7 +114,7 @@ $(document).ready(function() {
         $('input:radio[name=code]:input[value=' + code + ']').attr("checked", true);
 
         if( department == '' || department == null ){
-            if(code == 'EGENCY') {
+            if(code == 'AGENCY') {
                 alert( '대리점명을 입력해 주세요.' );
             } else if(code == 'SELLER') {
                 alert( '회원명을 입력해 주세요.' );
@@ -197,8 +197,8 @@ $(document).ready(function() {
 				<div class="logo"></div>
 				<div class="internal-form">
 					<form id="signupForm" name="signupForm" action="/member/signupSubmit" method="post">
-						<label><input type="radio" class="codeBtn" name="code" id="inCode" value="EGENCY" checked /> Egency</label>
-    					<label><input type="radio" class="codeBtn" name="code" id="exCode" value="SELLER" /> Seller</label>
+						<label><input type="radio" class="codeBtn" name="code" id="inCode" value="AGENCY" checked /> AGENCY</label>
+    					<label><input type="radio" class="codeBtn" name="code" id="exCode" value="SELLER" /> SELLER</label>
 						<div class="input-group">
 							<input type="text" id="department" name="department" value="" placeholder="대리점명">
 						</div>

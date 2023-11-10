@@ -34,34 +34,15 @@ public class MvcConfig implements WebMvcConfigurer {
 		registry.addViewController("/member/update").setViewName("member/update");
 		registry.addViewController("/member/updateCheck").setViewName("member/updateCheck");
 		
-		registry.addViewController("/feb/feb1").setViewName("feb/feb1");
-		registry.addViewController("/feb/feb2").setViewName("feb/feb2");
-		registry.addViewController("/feb/feb3").setViewName("feb/feb3");
-		registry.addViewController("/feb/feb4").setViewName("feb/feb4");
-		registry.addViewController("/feb/feb5").setViewName("feb/feb5");
-		registry.addViewController("/feb/feb6").setViewName("feb/feb6");
-		registry.addViewController("/feb/feb7").setViewName("feb/feb7");
-		registry.addViewController("/feb/feb8").setViewName("feb/feb8");
-		registry.addViewController("/analysis/energySimulation").setViewName("analysis/energySimulation");
-		registry.addViewController("/tat/tat").setViewName("tat/tat");		
+		registry.addViewController("/agency/agency").setViewName("/agency/agency");
+		registry.addViewController("/agency/seller").setViewName("/agency/seller");
 		
-		registry.addViewController("/feb/guideLines").setViewName("feb/guideLines");
+		registry.addViewController("/sellers/settlementManagement").setViewName("/sellers/settlementManagement");
 		
-		registry.addViewController("/issue/list").setViewName("issue/list");
-	}
-/* 
-	@Override
-	public void addInterceptors(InterceptorRegistry registry) {
-		registry.addInterceptor(authCheckInterceptor())
-			.addPathPatterns("/edit/**")
-			.excludePathPatterns("/edit/help/**");
+		registry.addViewController("/adminOnly/agencyTotal").setViewName("/adminOnly/agencyTotal");
+		registry.addViewController("/adminOnly/sellerTotal").setViewName("/adminOnly/sellerTotal");
 	}
 
-	@Bean
-	public AuthCheckInterceptor authCheckInterceptor() {
-		return new AuthCheckInterceptor();
-	}
-*/
 	@Bean
 	public MessageSource messageSource() {
 		ResourceBundleMessageSource ms = new ResourceBundleMessageSource();

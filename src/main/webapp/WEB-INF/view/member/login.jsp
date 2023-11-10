@@ -103,7 +103,7 @@
 			<form id="loginForm" name="loginForm" action="/member/loginSubmit" method="post">
 				<input type="hidden" name="prevPage" value="${prevPage}" />
 				<div class="logo">
-					<img src="../../resources/img/logo.jpeg">
+					<span><h3>BDC MEMBER</h3></span>
 				</div>
 				<div class="input-group">
 					<input type="text" id="id" name="id" placeholder="id">
