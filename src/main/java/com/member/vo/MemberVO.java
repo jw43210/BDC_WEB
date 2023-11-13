@@ -22,21 +22,7 @@ public class MemberVO {
 		this.pw = pw;
 		this.repw = pw;
 	}
-/*	
-	public MemberVO(String code, String department, String name, String phone, String email, String pw, String repw) {
-		this.code = code;
-		this.department = department;
-		this.name = name;
-		this.phone = phone;
-		this.email = email;
-		this.pw = pw;
-		this.repw = pw;
-	}
-	public MemberVO(String id, String name) {
-		this.id = id;
-		this.name = name;
-	}
-*/	
+
 	public String getCode() {
 		return code;
 	}

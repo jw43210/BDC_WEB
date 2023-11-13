@@ -6,15 +6,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="../../../resources/feb/css/guideLines.css">
+<link rel="stylesheet" href="../../../resources/bdc/css/guideLines.css">
 <title>settlementManagement</title>
 <link href="../../resources/img/logoicon.jpg" rel="shortcut icon" type="image/x-icon">
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="../../../resources/feb/js/time.js"></script>
+<script src="../../../resources/bdc/js/time.js"></script>
 <script>
-
-    var startTimeStamp;
-    var startButtonClickTime;
 
     var id = $("#id").val();
     var code = $("#code").val();
@@ -60,23 +57,25 @@
 </head>
 <body>
     
-    <div class="container">
-		<h2>${member.department} 판매내역</h2>
-		    
-		    <input type="text" id="itemName" placeholder="품목 이름">
-		    <input type="number" id="price" placeholder="금액">
-		    <input type="number" id="quantity" placeholder="수량">
-		    <button onclick="addItem()">추가</button>
-		    <br></br>
-			    <table id="salesTable">
-			        <tr>
-			            <th>품목 이름</th>
-			            <th>금액</th>
-			            <th>수량</th>
-			            <th>커미션</th>
-			            <th>Total</th>
-			        </tr>
-	   			 </table>
-	 </div>
+<div class="container">
+	<h2>${member.department} 판매등록</h2>
+    
+    <input type="text" id="itemName" placeholder="품목 이름">
+    <input type="number" id="price" placeholder="금액">
+    <input type="number" id="quantity" placeholder="수량">
+    <button onclick="addItem()">추가</button>
+    
+    <br></br>
+
+    <table id="salesTable">
+        <tr>
+            <th>품목 이름</th>
+            <th>금액</th>
+            <th>수량</th>
+            <th>커미션</th>
+            <th>Total</th>
+        </tr>
+ 	</table>
+</div>
 </body>
 </html>
