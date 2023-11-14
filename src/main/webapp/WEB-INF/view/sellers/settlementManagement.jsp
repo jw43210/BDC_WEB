@@ -32,25 +32,32 @@
         if (itemName && !isNaN(price) && !isNaN(quantity)) {
             var table = document.getElementById("salesTable");
             var row = table.insertRow(-1);
+
             var cell1 = row.insertCell(0);
             var cell2 = row.insertCell(1);
             var cell3 = row.insertCell(2);
             var cell4 = row.insertCell(3);
             var cell5 = row.insertCell(4);
+            var cell6 = row.insertCell(5); // 날짜 셀을 맨 뒤로 이동
+
             cell1.innerHTML = itemName;
             cell2.innerHTML = price;
             cell3.innerHTML = quantity;
             cell4.innerHTML = "1%"; // 고정된 커미션 값
 
-            var total = (price * quantity) * 0.01; // 1%를 0.01로 표현
+            var total = parseInt((price * quantity) * 0.01); // 정수 부분만 표시
             cell5.innerHTML = total;
+
+            // 현재 날짜 및 시간 (년-월-일 시:분) 추가
+            var currentDate = new Date();
+            var formattedDateTime = currentDate.toISOString().slice(0, 16).replace("T", " "); // 현재 날짜와 시간 (년-월-일 시:분)
+            cell6.innerHTML = formattedDateTime;
 
             document.getElementById("itemName").value = "";
             document.getElementById("price").value = "";
             document.getElementById("quantity").value = "";
         }
     }
-
 </script>
 </head>
 <body>
@@ -72,6 +79,7 @@
             <th>수량</th>
             <th>커미션(임의값)</th>
             <th>Total</th>
+            <th>등록일</th>
         </tr>
  	</table>
 </div>
