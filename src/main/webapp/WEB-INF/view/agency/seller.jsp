@@ -37,7 +37,7 @@
 	<h2>${member.department} 판매사원별 내역</h2>
            <div class="flex items-center space-x-2">
              <div>
-           	<input type="text" id="sellerName" placeholder="판매자명">
+           	<input type="text" id="sellerName" placeholder="검색어">
                <input type="date" id="startDateInputId" name="startDate" class="datepicker">
                <input type="date" id="endDateInputId" name="endDate" class="datepicker">
        		<button onclick="addItem()" class="custom-btn btn-1">검색</button>
@@ -46,6 +46,23 @@
            </div>    
 
 	    <br></br>
+	    <form id="searchForm" action="/issue/list/search" method="get">
+        	<select id="searchType" name="searchType" size="1" >
+   				<option value="title"<c:if test="${searchType == 'title'}">selected</c:if>>품목명</option>
+   				<option value="content" <c:if test="${searchType == 'content'}">selected</c:if>>판매자</option>
+   				<option value="author" <c:if test="${searchType == 'author'}">selected</c:if>>판매등록일</option>
+			</select>
+			<input type="text" id="keyword" name="keyword" value="${keyword}" placeholder="검색어 입력" <c:if test="${searchType == 'regDate'}">style="display:'none;'"</c:if>>
+			
+			<!-- 작성일 검색 시 -->
+			<div id="searchDate">
+				<input type="text" class="date" id="startDate" name="startDate" value="${startDate}" placeholder="검색 시작 날짜"/>
+				<input type="text" class="date" id="endDate" name="endDate" value="${endDate}" placeholder="검색 종료 날짜"/>
+            </div>
+            
+            <button type="button" id="searchBtn" class="custom-btn btn-1">검색</button>
+            <button type="button" id="searchClearBtn" class="custom-btn btn-1">초기화</button>
+        </form>
 	    
 	    <table id="sellerTotalTable">
 	        <tr>
