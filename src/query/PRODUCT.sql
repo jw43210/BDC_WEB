@@ -7,3 +7,28 @@ CREATE TABLE PRODUCT (
     REGDATE DATE DEFAULT SYSDATE NOT NULL,
     MODDATE DATE DEFAULT NULL
 );
+
+INSERT INTO PRODUCT (
+    ITEM_NAME
+    , PRICE
+    , QUANTITY
+    , COMMISSION
+    , SELLER_ID
+    , REGDATE )
+VALUES (
+     '아이폰'
+    , 10000
+    , 10
+    , 0.01
+    , 's'
+    , to_char(sysdate,'yyyy-mm-dd'));
+    
+SELECT 
+     ITEM_NAME
+    , PRICE
+    , QUANTITY
+    , COMMISSION
+    , SELLER_ID
+    , REGDATE
+FROM PRODUCT 
+WHERE SELLER_ID ='s';
