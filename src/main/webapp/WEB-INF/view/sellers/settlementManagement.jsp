@@ -42,11 +42,9 @@
             cell3.innerHTML = quantity;
             cell4.innerHTML = "1%"; // 고정된 커미션 값
 
-            // Calculate total and display it
             var total = (price * quantity) * 0.01; // 1%를 0.01로 표현
             cell5.innerHTML = total;
 
-            // Clear input fields
             document.getElementById("itemName").value = "";
             document.getElementById("price").value = "";
             document.getElementById("quantity").value = "";
@@ -72,7 +70,7 @@
             <th>품목 이름</th>
             <th>금액</th>
             <th>수량</th>
-            <th>커미션</th>
+            <th>커미션(임의값)</th>
             <th>Total</th>
         </tr>
  	</table>

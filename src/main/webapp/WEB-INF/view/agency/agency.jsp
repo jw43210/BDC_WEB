@@ -19,7 +19,7 @@
 	if(id == null || id =="") {
 	    alert("로그인하세요.");
 	}
-	if(code == 'AGENCY') {
+	if(code !== 'AGENCY') {
 	    alert("비정상적인 접근입니다.");
 	    location.href="/main";
 	}
@@ -34,7 +34,7 @@
 <body>
 	
 <div class="container">
-	<h2>${member.department}점 판매내역</h2>
+	<h2>${member.department} 판매내역</h2>
            <div class="flex items-center space-x-2">
               <div>
                 <input type="date" id="startDateInputId" name="startDate" class="datepicker">
