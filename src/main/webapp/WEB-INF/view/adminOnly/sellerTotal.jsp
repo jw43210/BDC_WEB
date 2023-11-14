@@ -19,7 +19,7 @@
 	if(id == null || id =="") {
 	    alert("로그인하세요.");
 	}
-	if(code == 'AGENCY') {
+	if(code == 'AGENCY' || 'SELLER') {
 	    alert("비정상적인 접근입니다.");
 	    location.href="/main";
 	}
